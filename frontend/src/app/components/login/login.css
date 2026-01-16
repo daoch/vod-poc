@@ -1,0 +1,38 @@
+/* Esto va en login.component.css */
+.login-card {
+  background: #ffffff;
+  padding: 2rem;
+  width: 100%;
+  max-width: 350px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-login:disabled {
+  background-color: #ccc;
+}
+
+.error-banner {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}

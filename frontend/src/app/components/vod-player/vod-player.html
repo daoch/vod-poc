@@ -1,0 +1,66 @@
+<section class="card">
+  <header class="header">
+    <h2 class="title">VOD Player</h2>
+
+    <div class="badges">
+      @if (state() === 'ready') {
+      <span class="badge">Token OK</span>
+      } @else if (state() === 'unauthorized') {
+      <span class="badge badge-error">Requiere Login</span>
+      } @else if (state() === 'loading') {
+      <span class="badge badge-warn">Cargando</span>
+      } @else {
+      <span class="badge badge-muted">{{ state() | uppercase }}</span>
+      }
+    </div>
+  </header>
+
+  <div class="video-container">
+    @switch (state()) {
+    @case ('loading') {
+    <div class="center">Cargando video…</div>
+    }
+    @case ('unauthorized') {
+    <div class="center">
+      <p>Contenido exclusivo para usuarios registrados.
+        Inicia sesión para reproducir el video.</p>
+    </div>
+    }
+    @case ('error') {
+    <div class="center">
+      <p>No se pudo cargar el video.</p>
+      <button class="btn" (click)="reload()">Reintentar</button>
+    </div>
+    }
+    @case ('ready') {
+    <!-- PLAYER BUNNY (IFRAME) -->
+    @if (playerMode === 'bunny') {
+    <iframe class="video" [src]="safeUrl()" loading="lazy" allowfullscreen="true"
+      allow="accelerometer; gyroscope; encrypted-media; picture-in-picture;">
+    </iframe>
+    }
+
+    <!-- PLAYER PERSONALIZADO (HTML5 VIDEO + HLS) -->
+    @if (playerMode === 'video') {
+    <video id="html5-player" class="video" controls>
+    </video>
+    }
+    }
+    @default {
+    <div class="center">
+      <p>Esperando videoId…</p>
+    </div>
+    }
+    }
+  </div>
+
+  <footer class="footer">
+    <div class="meta">
+      <span><b>VideoId:</b> {{ videoId() }}</span>
+    </div>
+
+    <button class="btn" (click)="reload()" [disabled]="state() === 'loading' || !auth.logged()">
+      Refrescar token
+    </button>
+  </footer>
+</section>

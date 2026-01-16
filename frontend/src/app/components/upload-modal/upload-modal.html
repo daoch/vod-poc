@@ -1,0 +1,17 @@
+<div class="overlay" (click)="close()"></div>
+
+<div class="modal">
+  <h3>Subir video</h3>
+
+  <input type="file" (change)="onFileSelected($event)" accept="video/*" />
+
+  @if (progress() > 0) {
+  <div class="progress">
+    <div class="bar" [style.width.%]="progress()"></div>
+  </div>
+  <p>{{ progress() }}% completado</p>
+  }
+
+  <button (click)="upload()" [disabled]="!file()">Subir</button>
+  <button (click)="close()">Cerrar</button>
+</div>

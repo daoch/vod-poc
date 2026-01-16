@@ -1,0 +1,44 @@
+<section class="page">
+  <header class="header">
+    <h2>Videos Subidos</h2>
+    <button class="btn" (click)="openUpload()">Subir Video</button>
+  </header>
+
+  @if (loading()) {
+  <p>Cargando videos...</p>
+  }
+
+  @if (!loading()) {
+  <div class="grid">
+    @for (video of videos(); track video.guid) {
+    <div class="card" (click)="goToVideo(video.guid)">
+
+      <div class="card-content">
+        <img [src]="video.thumbnailLink" alt="Thumbnail">
+
+        @if (video.progressPercent != null) {
+        <div class="progress" aria-label="Progreso visto">
+          <div class="progress-bar" [style.width.%]="video.progressPercent" role="progressbar"
+            [attr.aria-valuenow]="video.progressPercent" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        }
+
+        <h3 class="title">{{ video.title }}</h3>
+
+        <p class="meta">
+          <span>{{ video.dateUploaded | date : 'short' }}</span>
+          <span>{{ video.length }}s</span>
+          <span>{{ video.storageSize | number }} bytes</span>
+        </p>
+      </div>
+
+    </div>
+    }
+  </div>
+  }
+</section>
+
+@if (showUpload()) {
+<app-upload-modal [libraryId]="libraryId" (uploaded)="onUploaded($event)" (closed)="closeUpload()">
+</app-upload-modal>
+}

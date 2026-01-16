@@ -1,0 +1,110 @@
+/* Navegación estilo moderno */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #818080;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* Botones de Auth en el Nav */
+nav button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+/* Botón Iniciar Sesión */
+nav button:first-of-type {
+  background-color: #e50914;
+  color: white;
+}
+
+/* Botón Cerrar Sesión */
+nav button:last-of-type {
+  background-color: transparent;
+  color: #ccc;
+  border: 1px solid #555;
+}
+
+nav button:hover {
+  filter: brightness(1.2);
+}
+
+/* Contenedor principal */
+main {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  min-height: calc(100vh - 70px);
+}
+
+/* Fondo oscuro que bloquea el resto de la pantalla */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Muy oscuro para centrar atención */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Siempre arriba de todo */
+  backdrop-filter: blur(5px); /* Efecto borroso de fondo moderno */
+}
+
+/* Contenedor blanco/oscuro del login */
+.modal-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: slideDown 0.3s ease-out;
+}
+
+/* Botón de cerrar (X) */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+}
+
+.close:hover {
+  color: #333;
+}
+
+/* Animación de entrada */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

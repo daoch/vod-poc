@@ -1,0 +1,10 @@
+@import 'plyr/dist/plyr.css';
+
+:root {
+  --primary-font: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--primary-font);
+  margin: 0;
+}

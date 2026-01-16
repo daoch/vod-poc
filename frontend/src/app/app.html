@@ -1,0 +1,22 @@
+<nav>
+  <h1>VOD</h1>
+  @if (!authStore.logged()) {
+  <button (click)="showLogin = true">Login</button>
+  } @else {
+  <button (click)="logout()">Logout</button>
+  }
+</nav>
+
+<main>
+  <!-- <app-vod-player [videoId]="videoId()"></app-vod-player> -->
+
+  @if (showLogin && !authStore.logged()) {
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <button class="close" (click)="showLogin = false">X</button>
+      <app-login (loginSuccess)="showLogin = false"></app-login>
+    </div>
+  </div>
+  }
+  <router-outlet style="display: none;"></router-outlet>
+</main>
