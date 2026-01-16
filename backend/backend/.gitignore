@@ -1,0 +1,141 @@
+############################################
+# .NET / ASP.NET Core (API REST) - .NET 10
+############################################
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]ny [Cc][Pp][Uu]/
+[Ll]og/
+[Ll]ogs/
+
+# .NET publish output
+**/[Pp]ublish/
+**/[Pp]ublished/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.rsuser
+*.userprefs
+
+# Visual Studio files
+.vs/
+*.vscode/
+
+# Visual Studio Code (opcional)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+############################################
+# NuGet
+############################################
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+############################################
+# Dotnet tools / cache
+############################################
+.dotnet/
+**/.cache/
+**/.temporary/
+
+############################################
+# Test results / coverage
+############################################
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage.*.xml
+*.opencover.xml
+
+############################################
+# Logs
+############################################
+*.log
+
+############################################
+# Local databases / files
+############################################
+*.mdf
+*.ldf
+*.sqlite
+*.db
+*.bak
+
+############################################
+# Secrets / App configuration (NO subir)
+############################################
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# ASP.NET Core user secrets / dev certs
+secrets.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.crt
+
+# Appsettings - recomendado ignorar los de entorno
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+appsettings.Local.json
+
+############################################
+# Docker local overrides
+############################################
+docker-compose.override.yml
+
+############################################
+# Azure / Deploy tooling
+############################################
+*.PublishSettings
+*.pubxml
+*.pubxml.user
+
+############################################
+# Node (si tu proyecto tiene frontend)
+############################################
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+############################################
+# Swagger / OpenAPI output (si generas archivos)
+############################################
+swagger.json
+openapi.json
